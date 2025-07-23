@@ -12,8 +12,8 @@ const Navbar = () => {
     
     {/* Logo */}
     <div className="flex items-center gap-2">
-      <TbToolsKitchen2 className="text-2xl text-yellow-500" onClick={() => router.push('/home')}/>
-      <p className="text-xl font-semibold text-gray-800" onClick={() => router.push('/home')}>TiffinTrack</p>
+      <TbToolsKitchen2 className="text-2xl text-yellow-500" onClick={() => router.push('/')}/>
+      <p className="text-xl font-semibold text-gray-800" onClick={() => router.push('/')}>TiffinTrack</p>
     </div>
 
     {/* Nav Items */}

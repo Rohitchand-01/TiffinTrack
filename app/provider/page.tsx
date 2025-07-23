@@ -1,11 +1,15 @@
 'use client';
 import Link from 'next/link';
 import { CiLocationOn } from "react-icons/ci";
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
 
 export default function Providers() {
   const [location, setLocation] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+
+  useEffect(() => {
+    document.title = "TiffinTrack - Find Tiffin Providers";
+  }, []);
 
   const providers = [
     {

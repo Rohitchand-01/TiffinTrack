@@ -3,8 +3,12 @@ import Link from 'next/link'
 import { BiSolidCheckShield } from 'react-icons/bi'
 import { CiWallet } from 'react-icons/ci'
 import { FaHandHoldingHeart } from 'react-icons/fa'
+import { useState, useEffect } from 'react'
 
 export default function About () {
+  useEffect(() => {
+    document.title = "TiffinTrack - About Us";
+  }, []);
   const team = [
     {
       name: 'Rohit Chand',
