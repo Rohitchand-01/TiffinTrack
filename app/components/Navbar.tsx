@@ -1,23 +1,26 @@
 'use client'
 import React from 'react'
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { TbToolsKitchen2 } from 'react-icons/tb'
 
 const Navbar = () => {
+    const router = useRouter();
   return (
    <div className="fixed top-0 left-0 right-0 bg-white/40 backdrop-blur-sm shadow-md z-50">
   <div className="flex justify-between items-center px-6 py-3 max-w-7xl mx-auto">
     
     {/* Logo */}
     <div className="flex items-center gap-2">
-      <TbToolsKitchen2 className="text-2xl text-yellow-500" />
-      <p className="text-xl font-semibold text-gray-800">TiffinTrack</p>
+      <TbToolsKitchen2 className="text-2xl text-yellow-500" onClick={() => router.push('/home')}/>
+      <p className="text-xl font-semibold text-gray-800" onClick={() => router.push('/home')}>TiffinTrack</p>
     </div>
 
     {/* Nav Items */}
     <div className="hidden md:flex gap-8 text-gray-700 font-medium">
-      <p className="cursor-pointer hover:text-yellow-500 transition">Find Providers</p>
-      <p className="cursor-pointer hover:text-yellow-500 transition">How It Works</p>
-      <p className="cursor-pointer hover:text-yellow-500 transition">About</p>
+      <p className="cursor-pointer hover:text-yellow-500 transition" onClick={() => router.push('/provider')}>Find Providers</p>
+      <p className="cursor-pointer hover:text-yellow-500 transition" onClick={() => router.push('/how-it-works')}>How It Works</p>
+      <p className="cursor-pointer hover:text-yellow-500 transition" onClick={() => router.push('/about')}>About</p>
     </div>
 
     {/* Buttons */}
