@@ -1,14 +1,19 @@
+
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect, use} from 'react';
+import { useState, useEffect } from 'react';
 
+// Import specific icons from react-icons
 import { CiBellOn } from "react-icons/ci";
 import { CiRepeat } from "react-icons/ci";
 import { CiWallet } from "react-icons/ci";
 import { BiSolidCheckShield } from "react-icons/bi";
 import { BiSupport } from "react-icons/bi";
 import { HiOutlineChip } from "react-icons/hi";
+// Additional icons for steps and process flow
+import { MdOutlineLocationOn, MdOutlineSearch, MdOutlineCalendarMonth, MdOutlineDeliveryDining, MdOutlineTrackChanges, MdOutlineRestaurantMenu, MdOutlineManageAccounts, MdOutlinePlaylistAddCheck, MdOutlineShoppingBag, MdOutlineShowChart, MdOutlineSmartphone, MdOutlineNotificationsActive, MdOutlineFastfood, MdOutlineLocalShipping } from "react-icons/md";
+import { FaCheck } from 'react-icons/fa';
 
 
 export default function HowItWorks() {
@@ -22,7 +27,7 @@ export default function HowItWorks() {
       step: 1,
       title: "Set Your Location",
       description: "Enter your pincode or allow location access to find nearby tiffin providers in your area.",
-      icon: "ri-map-pin-line",
+      icon: <MdOutlineLocationOn />,
       color: "warm-yellow",
       details: [
         "Enter your exact location or pincode",
@@ -35,7 +40,7 @@ export default function HowItWorks() {
       step: 2,
       title: "Browse & Compare",
       description: "View detailed profiles of providers including menus, ratings, reviews, and pricing.",
-      icon: "ri-search-line",
+      icon: <MdOutlineSearch />,
       color: "warm-green",
       details: [
         "See weekly menus with daily meal options",
@@ -48,7 +53,7 @@ export default function HowItWorks() {
       step: 3,
       title: "Choose Your Plan",
       description: "Select from daily, weekly, or monthly subscription plans that fit your needs and budget.",
-      icon: "ri-calendar-check-line",
+      icon: <MdOutlineCalendarMonth />,
       color: "orange-500",
       details: [
         "Daily plans for trying new providers",
@@ -61,7 +66,7 @@ export default function HowItWorks() {
       step: 4,
       title: "Customize Delivery",
       description: "Set your preferred delivery times, special instructions, and dietary requirements.",
-      icon: "ri-time-line",
+      icon: <MdOutlineDeliveryDining />,
       color: "blue-500",
       details: [
         "Choose lunch or dinner delivery slots",
@@ -74,7 +79,7 @@ export default function HowItWorks() {
       step: 5,
       title: "Track & Enjoy",
       description: "Monitor your deliveries, rate meals, and manage your subscription from your dashboard.",
-      icon: "ri-heart-line",
+      icon: <MdOutlineTrackChanges />,
       color: "warm-yellow",
       details: [
         "Real-time order tracking and updates",
@@ -90,7 +95,7 @@ export default function HowItWorks() {
       step: 1,
       title: "Register Your Business",
       description: "Sign up with your kitchen details, food license, and business information for verification.",
-      icon: "ri-restaurant-line",
+      icon: <MdOutlineRestaurantMenu />,
       color: "warm-green",
       details: [
         "Provide business registration details",
@@ -103,7 +108,7 @@ export default function HowItWorks() {
       step: 2,
       title: "Set Up Your Profile",
       description: "Create an attractive profile with photos, specialties, pricing, and service areas.",
-      icon: "ri-user-settings-line",
+      icon: <MdOutlineManageAccounts />,
       color: "warm-yellow",
       details: [
         "Add high-quality photos of your kitchen and food",
@@ -116,7 +121,7 @@ export default function HowItWorks() {
       step: 3,
       title: "Create Weekly Menus",
       description: "Plan and upload your weekly menus with detailed meal descriptions and ingredients.",
-      icon: "ri-file-list-line",
+      icon: <MdOutlinePlaylistAddCheck />,
       color: "orange-500",
       details: [
         "Upload detailed daily menus for lunch and dinner",
@@ -129,7 +134,7 @@ export default function HowItWorks() {
       step: 4,
       title: "Manage Orders",
       description: "Receive orders through our platform and track preparation and delivery status.",
-      icon: "ri-shopping-bag-line",
+      icon: <MdOutlineShoppingBag />,
       color: "blue-500",
       details: [
         "Get instant notifications for new orders",
@@ -142,7 +147,7 @@ export default function HowItWorks() {
       step: 5,
       title: "Grow Your Business",
       description: "Build relationships with customers, gather feedback, and expand your service area.",
-      icon: "ri-line-chart-line",
+      icon: <MdOutlineShowChart />,
       color: "warm-green",
       details: [
         "Access detailed business analytics",
@@ -157,37 +162,37 @@ export default function HowItWorks() {
     {
       title: "Smart Matching",
       description: "Our algorithm matches students with providers based on location, preferences, and dietary needs.",
-      icon: <HiOutlineChip/> ,
+      icon: <HiOutlineChip />,
       color: "warm-yellow"
     },
     {
       title: "Quality Assurance",
       description: "All providers are verified for food safety standards and receive regular quality checks.",
-      icon: "ri-shield-check-line",
+      icon: <BiSolidCheckShield />,
       color: "warm-green"
     },
     {
       title: "Flexible Subscriptions",
       description: "Pause, resume, or modify your subscription anytime with no hidden charges.",
-      icon: "ri-refresh-line",
+      icon: <CiRepeat />,
       color: "orange-500"
     },
     {
       title: "Real-time Tracking",
       description: "Track your order from preparation to delivery with live updates and notifications.",
-      icon: "ri-notification-line",
+      icon: <CiBellOn />,
       color: "blue-500"
     },
     {
       title: "Secure Payments",
       description: "Multiple payment options with secure transactions and transparent billing.",
-      icon: "ri-secure-payment-line",
+      icon: <CiWallet />,
       color: "warm-yellow"
     },
     {
       title: "24/7 Support",
       description: "Customer support available round the clock to help with any issues or questions.",
-      icon: "ri-customer-service-line",
+      icon: <BiSupport />,
       color: "warm-green"
     }
   ];
@@ -284,7 +289,7 @@ export default function HowItWorks() {
                 <div className="flex-1">
                   <div className="flex items-center mb-6">
                     <div className={`w-16 h-16 bg-${step.color}/20 rounded-full flex items-center justify-center mr-4`}>
-                      <i className={`${step.icon} text-${step.color} text-2xl`}></i>
+                      {step.icon && <span className={`text-${step.color} text-2xl`}>{step.icon}</span>}
                     </div>
                     <div className={`w-10 h-10 bg-${step.color} rounded-full flex items-center justify-center`}>
                       <span className="text-white font-bold text-lg">{step.step}</span>
@@ -296,7 +301,7 @@ export default function HowItWorks() {
                     {step.details.map((detail, detailIndex) => (
                       <li key={detailIndex} className="flex items-start space-x-3">
                         <div className="w-5 h-5 flex items-center justify-center mt-1">
-                          <i className={`ri-check-line text-${step.color}`}></i>
+                          <FaCheck className={`text-${step.color}`} />
                         </div>
                         <span className="text-gray-600">{detail}</span>
                       </li>
@@ -308,7 +313,7 @@ export default function HowItWorks() {
                     src={`https://readdy.ai/api/search-image?query=${
                       activeUserType === 'student' 
                         ? step.step === 1 ? 'Young Indian student using mobile app to search for local tiffin providers location-based service modern interface warm lighting' 
-                        : step.step === 2 ? 'Indian student browsing food options on laptop comparing tiffin providers ratings reviews menus comfortable study room'
+                        : step.step === 2 ? 'Indian student Browse food options on laptop comparing tiffin providers ratings reviews menus comfortable study room'
                         : step.step === 3 ? 'Young person selecting subscription plan on mobile device payment options flexible plans student-friendly pricing'
                         : step.step === 4 ? 'Student setting delivery preferences on app customizing meal schedule dietary requirements user-friendly interface'
                         : 'Happy Indian student receiving tiffin delivery at home enjoying home-cooked meal satisfaction rating experience'
@@ -342,7 +347,7 @@ export default function HowItWorks() {
             {features.map((feature, index) => (
               <div key={index} className="text-center">
                 <div className={`w-16 h-16 bg-${feature.color}/20 rounded-full flex items-center justify-center mx-auto mb-6`}>
-                  <i className={`${feature.icon} text-${feature.color} text-2xl`}></i>
+                  {feature.icon && <span className={`text-${feature.color} text-2xl`}>{feature.icon}</span>}
                 </div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">{feature.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{feature.description}</p>
@@ -365,7 +370,7 @@ export default function HowItWorks() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="w-20 h-20 bg-warm-yellow/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <i className="ri-smartphone-line text-warm-yellow text-3xl"></i>
+                <MdOutlineSmartphone className="text-warm-yellow text-3xl" />
               </div>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">Order Placed</h3>
               <p className="text-gray-600">Student places order through app or website</p>
@@ -373,7 +378,7 @@ export default function HowItWorks() {
             
             <div className="text-center">
               <div className="w-20 h-20 bg-warm-green/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <i className="ri-notification-line text-warm-green text-3xl"></i>
+                <MdOutlineNotificationsActive className="text-warm-green text-3xl" />
               </div>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">Provider Notified</h3>
               <p className="text-gray-600">Provider receives instant notification and confirms</p>
@@ -381,7 +386,7 @@ export default function HowItWorks() {
             
             <div className="text-center">
               <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <i className="ri-restaurant-line text-orange-500 text-3xl"></i>
+                <MdOutlineFastfood className="text-orange-500 text-3xl" />
               </div>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">Meal Prepared</h3>
               <p className="text-gray-600">Fresh meal prepared with quality ingredients</p>
@@ -389,7 +394,7 @@ export default function HowItWorks() {
             
             <div className="text-center">
               <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <i className="ri-truck-line text-blue-500 text-3xl"></i>
+                <MdOutlineLocalShipping className="text-blue-500 text-3xl" />
               </div>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">Delivered</h3>
               <p className="text-gray-600">Meal delivered fresh to student's location</p>
