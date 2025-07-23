@@ -12,23 +12,23 @@ const Navbar = () => {
     
     {/* Logo */}
     <div className="flex items-center gap-2">
-      <TbToolsKitchen2 className="text-2xl text-yellow-500" onClick={() => router.push('/')}/>
-      <p className="text-xl font-semibold text-gray-800" onClick={() => router.push('/')}>TiffinTrack</p>
+      <TbToolsKitchen2 className="text-2xl text-yellow-500 cursor-pointer" onClick={() => router.push('/')}/>
+      <p className="text-xl font-semibold text-gray-800 cursor-pointer" onClick={() => router.push('/')}>TiffinTrack</p>
     </div>
 
     {/* Nav Items */}
     <div className="hidden md:flex gap-8 text-gray-700 font-medium">
-      <p className="cursor-pointer hover:text-yellow-500 transition" onClick={() => router.push('/provider')}>Find Providers</p>
+      <p className="cursor-pointer hover:text-yellow-500 transition" onClick={() => router.push('/providers')}>Find Providers</p>
       <p className="cursor-pointer hover:text-yellow-500 transition" onClick={() => router.push('/how-it-works')}>How It Works</p>
       <p className="cursor-pointer hover:text-yellow-500 transition" onClick={() => router.push('/about')}>About</p>
     </div>
 
     {/* Buttons */}
     <div className="flex gap-3">
-      <button className="px-4 py-1 text-sm font-medium rounded-full border border-gray-300 hover:border-yellow-400 transition cursor-pointer">
+      <button className="px-4 py-1 text-sm font-medium rounded-full border border-gray-300 hover:border-yellow-400 transition cursor-pointer" onClick={() => router.push('/login/student')}>
         Login as User
       </button>
-      <button className="px-4 py-1 text-sm font-medium rounded-full bg-yellow-400 text-white hover:bg-yellow-500 transition cursor-pointer">
+      <button className="px-4 py-1 text-sm font-medium rounded-full bg-yellow-400 text-white hover:bg-yellow-500 transition cursor-pointer" onClick={() => router.push('/login/provider')}>
         Login as Provider
       </button>
     </div>

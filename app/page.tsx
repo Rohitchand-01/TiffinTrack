@@ -4,9 +4,13 @@ import { CiLocationOn } from 'react-icons/ci'
 import { GrPlan } from 'react-icons/gr'
 import { FaRegHeart } from 'react-icons/fa'
 import { useState, useEffect, use } from 'react';
+import { useRouter } from 'next/navigation';
 
 
 export default function Home () {
+
+  const router = useRouter();
+
   useEffect(() => {
     document.title = "TiffinTrack";
   }, []); 
@@ -168,12 +172,12 @@ export default function Home () {
       </div>
       <div className='flex justify-center gap-6 mt-2 p-8'>
         {/* For Users */}
-        <button className='px-6 py-2  rounded-full hover:bg-yellow-400 hover:text-white'>
+        <button className='px-6 py-2  rounded-full hover:bg-yellow-400 hover:text-white cursor-pointer' onClick={()=> router.push('/login/student')}>
           Get started as a user
         </button>
 
         {/* For Providers */}
-        <button className='px-6 py-2 border border-gray-300 rounded-full '>
+        <button className='px-6 py-2 border border-gray-300 rounded-full  cursor-pointer' onClick={()=> router.push('/login/provider')}>
           Register as a provider
         </button>
       </div>
