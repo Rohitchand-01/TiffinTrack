@@ -265,7 +265,8 @@ export default function ProviderOrders() {
             <p className="text-gray-600">No orders found for the selected date and status filter.</p>
           </div>
         )}
-      </div
+      </div>
     </div>
+
   );
 }

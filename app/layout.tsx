@@ -1,17 +1,20 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
+// Using Google Fonts as an alternative due to @vercel/geist installation issue
+import { Inter, Roboto_Mono } from "next/font/google";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+import "./globals.css";
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+
+// Initialize Inter and Roboto_Mono with their respective variables
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter-sans", // Using a new variable name for clarity
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const roboto_mono = Roboto_Mono({
   subsets: ["latin"],
+  variable: "--font-roboto-mono", // Using a new variable name for clarity
 });
 
 export const metadata: Metadata = {
@@ -27,13 +30,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        // Apply the new font variables as CSS classes to the body
+        className={`${inter.variable} ${roboto_mono.variable} antialiased`}
       >
-        
-      <Navbar />
+        <Navbar />
         {children}
-        
-      <Footer />
+        <Footer />
       </body>
     </html>
   );
