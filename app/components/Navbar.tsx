@@ -18,6 +18,7 @@ const Navbar = () => {
 
     {/* Nav Items */}
     <div className="hidden md:flex gap-8 text-gray-700 font-medium">
+      <p className="cursor-pointer hover:text-yellow-500 transition" onClick={() => router.push('/')}>Home</p>
       <p className="cursor-pointer hover:text-yellow-500 transition" onClick={() => router.push('/providers')}>Find Providers</p>
       <p className="cursor-pointer hover:text-yellow-500 transition" onClick={() => router.push('/how-it-works')}>How It Works</p>
       <p className="cursor-pointer hover:text-yellow-500 transition" onClick={() => router.push('/about')}>About</p>
