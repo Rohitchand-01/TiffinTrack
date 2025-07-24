@@ -1,8 +1,10 @@
 'use client';
 import Link from 'next/link';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function ProviderLogin() {
+  const router = useRouter();
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
     email: '',
@@ -16,10 +18,77 @@ export default function ProviderLogin() {
     experience: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login/signup logic here
-    console.log('Form submitted:', formData);
+
+    try {
+      if (isLogin) {
+        const response = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: formData.email,
+            password: formData.password,
+            role: 'provider'
+          })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          alert(data.message || 'Login failed');
+          return;
+        }
+
+        // Store token in localStorage
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('userRole', 'provider');
+        
+        alert('Login successful');
+        console.log(data);
+        
+        // Redirect to provider dashboard
+        router.push('/provider/dashboard');
+      } else {
+        const response = await fetch('/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            ...formData,
+            name: formData.ownerName, // Map ownerName to name for consistency
+            role: 'provider'
+          })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          alert(data.message || 'Registration failed');
+          return;
+        }
+
+        alert('Registration successful! Please login now.');
+        console.log(data);
+        
+        // Switch to login mode after successful registration
+        setIsLogin(true);
+        // Clear form data
+        setFormData({
+          email: '',
+          password: '',
+          businessName: '',
+          ownerName: '',
+          phone: '',
+          address: '',
+          pincode: '',
+          licenseNumber: '',
+          experience: ''
+        });
+      }
+    } catch (error: any) {
+      alert('Network error. Please try again.');
+      console.error('Error:', error);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -31,7 +100,6 @@ export default function ProviderLogin() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-md mx-auto">
@@ -63,7 +131,6 @@ export default function ProviderLogin() {
                         required
                       />
                     </div>
-
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">Owner Name</label>
                       <input
@@ -119,7 +186,6 @@ export default function ProviderLogin() {
                         required
                       />
                     </div>
-
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">Kitchen Address</label>
                       <input
@@ -132,7 +198,6 @@ export default function ProviderLogin() {
                         required
                       />
                     </div>
-
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">Pincode</label>
                       <input
@@ -145,7 +210,6 @@ export default function ProviderLogin() {
                         required
                       />
                     </div>
-
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">Food License Number</label>
                       <input
@@ -158,7 +222,6 @@ export default function ProviderLogin() {
                         required
                       />
                     </div>
-
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">Experience in Years</label>
                       <select

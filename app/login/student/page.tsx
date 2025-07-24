@@ -1,8 +1,12 @@
 'use client';
+
 import Link from 'next/link';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function StudentLogin() {
+  const router = useRouter();
+
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
     email: '',
@@ -13,12 +17,6 @@ export default function StudentLogin() {
     pincode: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle login/signup logic here
-    console.log('Form submitted:', formData);
-  };
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
@@ -26,9 +24,41 @@ export default function StudentLogin() {
     });
   };
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
+
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, role: 'student' })
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        alert(data.message || 'Something went wrong');
+        return;
+      }
+
+      if (isLogin) {
+        localStorage.setItem('token', data.token);
+        alert('Login successful');
+        router.push('/');
+      } else {
+        alert('Registration successful. Please login now.');
+        setIsLogin(true);
+      }
+    } catch (error) {
+      alert('Server error');
+      console.error(error);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
-      
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-md mx-auto">
