@@ -22,10 +22,10 @@ const Footer = () => {
         {/* For Users */}
         <div className='flex flex-col space-y-1'>
           <p className='font-semibold mb-1'>For Users</p>
-          <p className='text-gray-600 cursor-pointer'>Find Providers</p>
+          <p className='text-gray-600 cursor-pointer' onClick={()=> router.push('/providers')}>Find Providers</p>
           <p className='text-gray-600 cursor-pointer' onClick={()=> router.push('/student/dashboard')}>My Dashboard</p>
-          <p className='text-gray-600 cursor-pointer'>Subscriptions</p>
-          <p className='text-gray-600 cursor-pointer'>Profile</p>
+          <p className='text-gray-600 cursor-pointer' onClick={()=> router.push('/subscription')}>Subscriptions</p>
+          <p className='text-gray-600 cursor-pointer' onClick={()=> router.push('/profile')}>Profile</p>
         </div>
 
         {/* For Providers */}
