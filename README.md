@@ -1,36 +1,155 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍱 TiffinTrack
 
-## Getting Started
+**TiffinTrack** is a modern web application designed to seamlessly connect students with local tiffin service providers. It simplifies the process of discovering, subscribing to, and managing daily meal services, while providing providers with robust tools to manage their orders, customers, and business operations.
 
-First, run the development server:
+---
 
+## ✨ Features
+
+### 🎓 For Students:
+- **Tiffin Provider Discovery** – Easily find and browse various tiffin service providers.
+- **Subscription Management** – View active subscriptions, track remaining meals, pause/renew services.
+- **Order Tracking** – Monitor real-time meal order statuses: *Preparing, Ready, Delivered*.
+- **Profile Management** – Update contact info, delivery address, and dietary preferences.
+- **Spending Overview** – Track monthly spending on meals.
+
+### 🧑‍🍳 For Providers:
+- **Dashboard Overview** – View orders, active customers, revenue stats, and ratings.
+- **Order Management** – Mark orders as Ready/Delivered and track delivery info.
+- **Customer Insights** – Manage subscribers, track consumption, and view generated revenue.
+- **Menu Control** – Update daily/weekly menu offerings.
+- **Analytics** – Get business insights: customer acquisition, growth trends, and reviews.
+
+### 🔐 General:
+- **Secure Auth** – Authentication powered by [Clerk](https://clerk.dev).
+- **Responsive UI** – Works smoothly on desktops, tablets, and mobile phones.
+
+---
+
+## 🚀 Tech Stack
+
+### 🔧 Frontend:
+- **Next.js** (React Framework)
+- **React**
+- **TypeScript**
+- **Tailwind CSS**
+- **Lucide React** (icons)
+- **@shadcn/ui** (components like Switch, Textarea, Tabs)
+
+### 🗄️ Backend:
+- **Next.js API Routes**
+- **Clerk** for authentication
+- **Drizzle ORM** (Type-safe DB interaction)
+- **MongoDB** (Database)
+
+---
+
+## 🛠️ Setup & Installation
+
+### Prerequisites
+- Node.js (v18+)
+- npm or yarn
+
+---
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/yourusername/tiffintrack.git
+cd tiffintrack
+```
+
+### 2. Install Dependencies
+```bash
+# With npm
+npm install
+
+# Or with yarn
+yarn install
+```
+
+### 3. Add Environment Variables
+
+Create a `.env.local` file in the root:
+
+```env
+# Clerk Keys
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_YOUR_CLERK_PUBLISHABLE_KEY
+CLERK_SECRET_KEY=sk_test_YOUR_CLERK_SECRET_KEY
+
+# MongoDB URI
+DATABASE_URL="mongodb+srv://<username>:<password>@<cluster-url>/<database-name>?retryWrites=true&w=majority"
+```
+
+> ⚠️ Ensure no spaces around `=` and do **not** commit `.env.local` to version control.
+
+---
+
+### 4. Set Up Database (Drizzle + MongoDB)
+Make sure your MongoDB instance is running and accessible from your `DATABASE_URL`.
+
+If you use Drizzle migrations:
+```bash
+npx drizzle-kit push
+# or
+npx drizzle-kit generate
+```
+
+---
+
+### 5. Install Missing shadcn/ui Components
+If required, run:
+
+```bash
+npx shadcn@latest add switch
+npx shadcn@latest add textarea
+npx shadcn@latest add tabs
+```
+
+---
+
+### 6. Run the Dev Server
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Your app should now be running at [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 7. Build for Production
+```bash
+npm run build
+# or
+yarn build
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 💡 Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Visit `http://localhost:3000`
+- Register/Login using Clerk auth
+- Navigate to `/student/dashboard` for student panel
+- Go to `/provider/dashboard` for provider panel
+- Update your profile at `/profile`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🤝 Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+We welcome contributions! Feel free to open issues or submit pull requests to improve the platform.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📄 License
+
+MIT License © 2025 [Rohit Chand]
+
+---
+
+## 📧 Contact
+
+Built with 💛 by [Rohit Chand](mailto:rohitchand010904@example.com)
+
