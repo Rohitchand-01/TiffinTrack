@@ -73,11 +73,9 @@ Create a `.env.local` file in the root:
 
 ```env
 # Clerk Keys
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_YOUR_CLERK_PUBLISHABLE_KEY
-CLERK_SECRET_KEY=sk_test_YOUR_CLERK_SECRET_KEY
 
 # MongoDB URI
-DATABASE_URL="mongodb+srv://<username>:<password>@<cluster-url>/<database-name>?retryWrites=true&w=majority"
+DATABASE_URI="mongodb+srv://<username>:<password>@<cluster-url>/<database-name>?retryWrites=true&w=majority"
 ```
 
 > ⚠️ Ensure no spaces around `=` and do **not** commit `.env.local` to version control.
@@ -85,7 +83,7 @@ DATABASE_URL="mongodb+srv://<username>:<password>@<cluster-url>/<database-name>?
 ---
 
 ### 4. Set Up Database (Drizzle + MongoDB)
-Make sure your MongoDB instance is running and accessible from your `DATABASE_URL`.
+Make sure your MongoDB instance is running and accessible from your `DATABASE_URI`.
 
 If you use Drizzle migrations:
 ```bash
